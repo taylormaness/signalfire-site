@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Case for a New Progressive Economic Agenda | SignalFire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* BEACON HILL - matching index.html */
+            --color-primary: #1e3a5a;
+            --color-accent: #a16207;
+            --color-accent-hover: #854d0e;
+            --color-text: #27241d;
+            --color-text-secondary: #5c5448;
+            --color-border: #d4cfc4;
+            --color-bg: #fdfbf7;
+            --color-bg-warm: #f5f2eb;
+            --color-bg-featured: #faf8f3;
+            --color-red: #9a3412;
+            --color-fire: #b45309;
+            --color-red: #dc2626;
+            --color-fire: #e85d04;
+            --font-serif: 'Libre Baskerville', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            background: #1e3a5a;
+            padding: 10px 0;
+            border-bottom: 3px solid #a16207;
+        }
+
+        .header-top-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-top a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .header-top a:hover {
+            color: #fff;
+        }
+
+        .header-top-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .logo-main {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .logo-signal {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-fire {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-fire);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-tagline {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--color-text-secondary);
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
+        }
+
+        /* Article Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .article-container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--color-red);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            margin-bottom: 20px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .article-subtitle {
+            font-size: 20px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info .author-name {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .author-info .article-date {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+        }
+
+        .article-content h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            color: var(--color-text);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            color: var(--color-text);
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--color-accent);
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        .article-content a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        .article-content a:hover {
+            color: var(--color-accent-hover);
+        }
+
+        /* Share Bar */
+        .share-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            margin-top: 48px;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .share-bar span {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-secondary);
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .share-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 48px;
+        }
+
+        .comments-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .comments-header h2 {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg-warm);
+            border-top: 1px solid var(--color-border);
+            padding: 48px 0 24px;
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-main {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .article-header h1 {
+                font-size: 32px;
+            }
+
+            .article-subtitle {
+                font-size: 18px;
+            }
+
+            .article-content {
+                font-size: 17px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-top-inner">
+                <a href='/coming-soon'>Subscribe to Newsletter</a>
+                <div class="header-top-links">
+                    <a href="mailto:taylormaness@gmail.com">Contact</a>
+                    <a href="mailto:taylormaness@gmail.com?subject=Advertising%20Inquiry%20-%20SignalFire">Advertise</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <a class='logo' href='/'>
+                <div class="logo-main">
+                    <span class="logo-signal">Signal</span><span class="logo-fire">Fire</span>
+                </div>
+                <span class="logo-tagline">Warning. Signal. Celebration.</span>
+            </a>
+            
+        </div>
+    </header>
+
+    <article class="article-container">
+        <div class="article-header">
+            <span class="article-category">Featured</span>
+            <h1>The Case for a New Progressive Economic Agenda: Why 2026 Could Be a Turning Point</h1>
+            <p class="article-subtitle">As the political landscape shifts and economic anxieties persist, progressives have a unique opportunity to reframe the conversation around wages, housing, and economic security.</p>
+            <div class="article-meta">
+                <div class="author-avatar">SM</div>
+                <div class="author-info">
+                    <div class="author-name">Sarah Mitchell</div>
+                    <div class="article-date">January 31, 2026 · 8 min read</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>For years, progressives have struggled to break through on economic messaging. While polls consistently show broad support for individual policies—raising the minimum wage, expanding healthcare access, investing in affordable housing—the broader narrative has often felt disjointed, failing to coalesce into a compelling vision that resonates with voters beyond the Democratic base.</p>
+
+            <p>But as we enter 2026, there are signs that the terrain may be shifting. Economic anxieties that once seemed like background noise have moved to the foreground of American political life. Housing costs have become impossible to ignore in cities and suburbs alike. Healthcare expenses continue to squeeze family budgets. And a generation of workers who came of age during the gig economy are questioning whether the old promises of hard work leading to prosperity still hold true.</p>
+
+            <h2>The Opportunity in Economic Discontent</h2>
+
+            <p>The latest polling data tells a striking story. According to recent surveys, economic concerns now outrank every other issue among likely voters—including immigration, crime, and cultural issues that have dominated recent election cycles. More importantly, the nature of these concerns has evolved. Voters aren't simply worried about inflation or recession in the abstract; they're worried about specific, tangible pressures on their daily lives.</p>
+
+            <blockquote>
+                "What we're seeing is a fundamental shift in how Americans think about economic security. It's no longer just about jobs—it's about whether those jobs can sustain a decent life."
+            </blockquote>
+
+            <p>This creates an opening for progressives, but only if they're willing to meet voters where they are. That means moving beyond policy wish lists and toward a coherent economic narrative that speaks to working families' lived experiences.</p>
+
+            <h2>Beyond the Usual Talking Points</h2>
+
+            <p>The temptation, as always, will be to fall back on familiar formulations: tax the rich, expand the safety net, invest in green jobs. These policies remain popular and important. But they're not sufficient to build the kind of broad coalition that can win elections and sustain governing majorities.</p>
+
+            <p>What's needed is a bolder vision—one that addresses not just the symptoms of economic insecurity but its root causes. That means tackling housing costs head-on, including the supply constraints and regulatory barriers that have made homeownership increasingly unattainable. It means rethinking how we structure work and wages in an economy where traditional employment relationships are eroding. And it means making the case for public investment not as charity or redistribution, but as essential infrastructure for broadly shared prosperity.</p>
+
+            <h3>Learning from State and Local Successes</h3>
+
+            <p>The good news is that progressives don't have to start from scratch. Across the country, state and local governments have been experimenting with innovative approaches to economic policy—and some of those experiments are working. From tenant protection laws that have stabilized housing markets to portable benefits programs that provide security for gig workers, there's a growing body of evidence about what actually helps working families.</p>
+
+            <p>The challenge now is to translate these local successes into a national agenda—and to communicate that agenda in terms that resonate beyond progressive strongholds. That will require discipline, creativity, and a willingness to engage with voters who may not share every progressive priority but who are desperately seeking solutions to their economic struggles.</p>
+
+            <h2>The Stakes of 2026</h2>
+
+            <p>None of this will be easy. Political polarization remains intense, and the structural advantages that benefit the status quo are formidable. But the cost of inaction is also clear. If progressives fail to offer a compelling economic vision, voters will continue to drift toward alternatives—some constructive, others decidedly not.</p>
+
+            <p>The opportunity is there. The question is whether progressives will seize it.</p>
+        </div>
+
+        <div class="share-bar">
+            <span>Share:</span>
+            <a href="#" class="share-btn">Twitter</a>
+            <a href="#" class="share-btn">Facebook</a>
+            <a href="#" class="share-btn">Email</a>
+            <a href="#" class="share-btn">Copy Link</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a class='logo' href='/'>
+                        <div class="logo-main">
+                            <span class="logo-signal">Signal</span><span class="logo-fire">Fire</span>
+                        </div>
+                        <span class="logo-tagline">Warning. Signal. Celebration.</span>
+                    </a>
+                    <p>Your daily source for progressive political news, analysis, and commentary. Curating the stories that matter and providing the context you need to understand them.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Sections</h4>
+                    <ul>
+                        <li><a href='/'>The Fire</a></li>
+                        <li><a href='/'>The Signal</a></li>
+                        <li><a href='/coming-soon'>Firestarter Index</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href='/coming-soon'>About</a></li>
+                        <li><a href="mailto:taylormaness@gmail.com">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href='/coming-soon'>Subscribe</a></li>
+                        <li><a href="mailto:taylormaness@gmail.com?subject=Advertising%20Inquiry%20-%20SignalFire">Advertise</a></li>
+                        <li><a href='/coming-soon'>Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SignalFire. All rights reserved.</p>
+                <div class="social-links">
+                    <a href='/coming-soon'>Twitter</a>
+                    <a href='/coming-soon'>Facebook</a>
+                    <a href='/coming-soon'>Instagram</a>
+                    <a href='/coming-soon'>RSS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
