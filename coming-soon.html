@@ -233,7 +233,7 @@
 <body>
     <header>
         <div class="header-inner">
-            <a class='logo' href='/'>
+            <a href="index.html" class="logo">
                 <div class="logo-main">
                     <span class="logo-signal">Signal</span><span class="logo-fire">Fire</span>
                 </div>
@@ -251,7 +251,7 @@
             <div class="newsletter-form" id="newsletter-box">
                 <h3>Get the SignalFire Newsletter</h3>
                 <p>The day's most important progressive news, delivered every morning.</p>
-                <form id='newsletter-form' method='POST' name='newsletter'>
+                <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="newsletter-form">
                     <input type="hidden" name="form-name" value="newsletter">
                     <p style="display:none"><input name="bot-field"></p>
                     <div class="form-row">
@@ -261,7 +261,7 @@
                 </form>
             </div>
 
-            <a class='back-link' href='/'>
+            <a href="index.html" class="back-link">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
