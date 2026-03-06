@@ -251,9 +251,7 @@
             <div class="newsletter-form" id="newsletter-box">
                 <h3>Get the SignalFire Newsletter</h3>
                 <p>The day's most important progressive news, delivered every morning.</p>
-                <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="newsletter-form">
-                    <input type="hidden" name="form-name" value="newsletter">
-                    <p style="display:none"><input name="bot-field"></p>
+                <form id="newsletter-form">
                     <div class="form-row">
                         <input type="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Subscribe</button>
@@ -280,25 +278,33 @@
         if (!form) return;
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            var data = new URLSearchParams(new FormData(form));
+            var email = form.querySelector('input[name="email"]').value;
             var btn = form.querySelector('button');
             btn.textContent = 'Subscribing...';
             btn.disabled = true;
-            fetch(window.location.pathname, {
+            fetch('https://signalfireblog.substack.com/api/v1/free', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                body: data.toString()
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    email: email,
+                    first_url: window.location.href,
+                    first_referrer: document.referrer || '',
+                    current_url: window.location.href,
+                    current_referrer: document.referrer || '',
+                    source: 'embed'
+                })
             }).then(function(resp) {
-                if (resp.ok) {
+                if (resp.ok || resp.status === 200) {
                     var box = document.getElementById('newsletter-box');
-                    box.innerHTML = '<h3 style="margin-bottom:12px;">You\'re In</h3><p style="font-size:14px;color:#5c5448;line-height:1.5;">Thanks for subscribing. We\'ll keep you posted on the stories that matter.</p>';
+                    box.innerHTML = '<h3 style="margin-bottom:12px;">Check Your Inbox</h3><p style="font-size:14px;color:#5c5448;line-height:1.5;">We sent you a confirmation email. Click the link to complete your subscription.</p>';
                 } else {
                     btn.textContent = 'Try Again';
                     btn.disabled = false;
                 }
             }).catch(function() {
-                btn.textContent = 'Try Again';
-                btn.disabled = false;
+                window.open('https://signalfireblog.substack.com/subscribe?simple=true&email=' + encodeURIComponent(email), '_blank');
+                var box = document.getElementById('newsletter-box');
+                box.innerHTML = '<h3 style="margin-bottom:12px;">Almost There</h3><p style="font-size:14px;color:#5c5448;line-height:1.5;">Complete your subscription in the tab that just opened.</p>';
             });
         });
     })();
