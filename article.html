@@ -7,7 +7,7 @@
     <meta name="author" content="SignalFire">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://signalfireblog.com/article.html">
-    <meta property="og:title" content="The Case for a New Progressive Economic Agenda | SignalFire">
+    <meta property="og:title" content="{{ title }} | SignalFire">
     <meta property="og:description" content="As the political landscape shifts, progressives have a unique opportunity to reframe the conversation around wages, housing, and economic security.">
     <meta property="og:site_name" content="SignalFire">
     <meta name="twitter:card" content="summary">
@@ -15,7 +15,7 @@
     <meta name="twitter:description" content="As the political landscape shifts, progressives have a unique opportunity to reframe the conversation.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3a5a'/%3E%3Ctext x='4' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23b45309'%3ES%3C/text%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23e85d04'%3EF%3C/text%3E%3C/svg%3E">
 
-    <title>The Case for a New Progressive Economic Agenda | SignalFire</title>
+    <title>{{ title }} | SignalFire</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -501,50 +501,20 @@
 
     <article class="article-container">
         <div class="article-header">
-            <span class="article-category">Featured</span>
-            <h1>The Case for a New Progressive Economic Agenda: Why 2026 Could Be a Turning Point</h1>
-            <p class="article-subtitle">As the political landscape shifts and economic anxieties persist, progressives have a unique opportunity to reframe the conversation around wages, housing, and economic security.</p>
+            <span class="article-category">{{ category or "Analysis" }}</span>
+            <h1>{{ title }}</h1>
+            {% if subtitle %}<p class="article-subtitle">{{ subtitle }}</p>{% endif %}
             <div class="article-meta">
-                <div class="author-avatar">SM</div>
+                <div class="author-avatar">{{ (author or "SF")[:2] | upper }}</div>
                 <div class="author-info">
-                    <div class="author-name">Sarah Mitchell</div>
-                    <div class="article-date">January 31, 2026 · 8 min read</div>
+                    <div class="author-name">{{ author or "SignalFire" }}</div>
+                    <div class="article-date">{{ date or "" }}</div>
                 </div>
             </div>
         </div>
 
         <div class="article-content">
-            <p>For years, progressives have struggled to break through on economic messaging. While polls consistently show broad support for individual policies—raising the minimum wage, expanding healthcare access, investing in affordable housing—the broader narrative has often felt disjointed, failing to coalesce into a compelling vision that resonates with voters beyond the Democratic base.</p>
-
-            <p>But as we enter 2026, there are signs that the terrain may be shifting. Economic anxieties that once seemed like background noise have moved to the foreground of American political life. Housing costs have become impossible to ignore in cities and suburbs alike. Healthcare expenses continue to squeeze family budgets. And a generation of workers who came of age during the gig economy are questioning whether the old promises of hard work leading to prosperity still hold true.</p>
-
-            <h2>The Opportunity in Economic Discontent</h2>
-
-            <p>The latest polling data tells a striking story. According to recent surveys, economic concerns now outrank every other issue among likely voters—including immigration, crime, and cultural issues that have dominated recent election cycles. More importantly, the nature of these concerns has evolved. Voters aren't simply worried about inflation or recession in the abstract; they're worried about specific, tangible pressures on their daily lives.</p>
-
-            <blockquote>
-                "What we're seeing is a fundamental shift in how Americans think about economic security. It's no longer just about jobs—it's about whether those jobs can sustain a decent life."
-            </blockquote>
-
-            <p>This creates an opening for progressives, but only if they're willing to meet voters where they are. That means moving beyond policy wish lists and toward a coherent economic narrative that speaks to working families' lived experiences.</p>
-
-            <h2>Beyond the Usual Talking Points</h2>
-
-            <p>The temptation, as always, will be to fall back on familiar formulations: tax the rich, expand the safety net, invest in green jobs. These policies remain popular and important. But they're not sufficient to build the kind of broad coalition that can win elections and sustain governing majorities.</p>
-
-            <p>What's needed is a bolder vision—one that addresses not just the symptoms of economic insecurity but its root causes. That means tackling housing costs head-on, including the supply constraints and regulatory barriers that have made homeownership increasingly unattainable. It means rethinking how we structure work and wages in an economy where traditional employment relationships are eroding. And it means making the case for public investment not as charity or redistribution, but as essential infrastructure for broadly shared prosperity.</p>
-
-            <h3>Learning from State and Local Successes</h3>
-
-            <p>The good news is that progressives don't have to start from scratch. Across the country, state and local governments have been experimenting with innovative approaches to economic policy—and some of those experiments are working. From tenant protection laws that have stabilized housing markets to portable benefits programs that provide security for gig workers, there's a growing body of evidence about what actually helps working families.</p>
-
-            <p>The challenge now is to translate these local successes into a national agenda—and to communicate that agenda in terms that resonate beyond progressive strongholds. That will require discipline, creativity, and a willingness to engage with voters who may not share every progressive priority but who are desperately seeking solutions to their economic struggles.</p>
-
-            <h2>The Stakes of 2026</h2>
-
-            <p>None of this will be easy. Political polarization remains intense, and the structural advantages that benefit the status quo are formidable. But the cost of inaction is also clear. If progressives fail to offer a compelling economic vision, voters will continue to drift toward alternatives—some constructive, others decidedly not.</p>
-
-            <p>The opportunity is there. The question is whether progressives will seize it.</p>
+            {{ body_html | safe }}
         </div>
 
         <div class="share-bar">
